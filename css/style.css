@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Just+Another+Hand|Wire+One|Tulpen+One|Eczar);
 
-
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -9,28 +8,28 @@
 
 body {
   /* font-family: 'Just Another Hand', sans-serif; */
-  /* font-family: 'Tulpen One', sans-serif; */
-  font-family: 'Wire One', sans-serif;
+  font-family: 'Tulpen One', sans-serif;
+  /* font-family: 'Wire One', sans-serif; */
   /* font-family: 'Eczar', sans-serif; */
-  background-color: bisque;
+  /*  */
+  background-color:#9AE19D;
   font-size: 48px;
   text-align: center;
 }
 
 main {
+  background-color: #909590;
   width: 70%;
   margin: 0 auto;
 }
-
 
 h1 {
   font-size: 72px;
   margin-left: 50px;
 }
 
-
 section {
-  background-color: rgb(76, 141, 76);
+  background-color: #537A5A;
   margin: 20px auto;
 }
 
@@ -39,20 +38,53 @@ li {
 }
 
 img {
-  border: 5px solid rgb(235, 77, 77);
+  border: 5px solid rgb(77, 235, 135);
 }
 
+
+
+/* basic page layout complete */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* float demo  show float against the other sections popping out of the normal page flow */
 .floaty img {
   float: left;
   padding: 25px;
 }
 
+/* need all 3 */
 .floaty:after {
   content: "";
   display: table;
   clear: both;
 }
 
+
+
+
+
+/* Add the col by percentages for the floats */
 .col-4 img {
   width: 25%;
 }
@@ -61,12 +93,55 @@ img {
   width: 50%;
 }
 
+
+
+
+
+
 .flexy {
   display: flex;
 }
 
 .flexy img {
+  /* makes the sizes of each of the items the same proportions. */
   flex: 1;
-  min-width: 0;
+  /* min-width: 0; */
+  /* or */
+  overflow: hidden;
   padding: 25px;
 }
+
+/* 
+The Automatic Minimum Size of Flex Items
+You're encountering a flexbox default setting.
+
+A flex item cannot be smaller than the size of its content along the main axis.
+
+The defaults are...
+
+min-width: auto
+min-height: auto
+...for flex items in row-direction and column-direction, respectively.
+
+You can override these defaults by setting flex items to:
+
+min-width: 0
+min-height: 0
+overflow: hidden (or any other value, except visible)
+Flexbox Specification
+4.5. Automatic Minimum Size of Flex Items
+
+To provide a more reasonable default minimum size for flex items, this specification introduces a new auto value as the initial value of the min-width and min-height properties defined in CSS 2.1.
+
+With regard to the auto value...
+
+On a flex item whose overflow is visible in the main axis, when specified on the flex item’s main-axis min-size property, specifies an automatic minimum size. It otherwise computes to 0.
+
+In other words:
+
+The min-width: auto and min-height: auto defaults apply only when overflow is visible.
+If the overflow value is not visible, the value of the min-size property is 0.
+Hence, overflow: hidden can be a substitute for min-width: 0 and min-height: 0. */
+
+
+/* https://stackoverflow.com/questions/36247140/why-dont-flex-items-shrink-past-content-size */
